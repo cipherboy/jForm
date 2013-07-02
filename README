@@ -1,0 +1,104 @@
+jForm v1.4 - A HTML5 Form library 
+Depends: jQuery v1.5+
+
+Copyright (C) 2011, 2013 Alex Scheel
+All rights reserved.
+Licensed under BSD 2 Clause License:
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+- Redistributions of source code must retain the above copyright notice,
+  this list of conditions and the following disclaimer.
+- Redistributions in binary form must reproduce the above copyright notice, 
+  this list of conditions and the following disclaimer in the documentation 
+  and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+A HTML5 Form library 
+
+Usage:
+  var form = new jForm();
+  form.init('div-jform-id', '/path/to/jform/push');
+  form.setForm([[[0, 0, 0]], [["Title for page", ["Name", "id-element", "text", "Description of element"]]]);
+  form.setRControls('div-rcontrols-id', ["next"]);
+  form.setLControls('div-lcontrols-id', ["next"]);
+  form.setReturnCodes([['1', 'Missing Name', 0]]);
+  form.setSubmit('/path/on/success');
+  form.load();
+  
+API:
+  Main:
+    init(formid, saveuri) - Sets id of form, location to save to
+    
+    doNext() - Go to next form page
+    
+    doBack() - Go to previous form page
+    
+    saveData() - Save page's data
+    
+    submit() - Submit form
+    
+    load() - Loads form, displays
+    
+  Config:
+    setForm(form) - Sets contents of form from array
+    
+    setRControls(id, elements) - Set contents of right controls
+    
+    setLControls(id, elements) - Set contents of left controls
+    
+    setSubmit(path) - Path on success
+    
+    setReturnCodes(codes) - Array with return codes.
+    
+  Getters:
+    getRControls() - Render right controls
+    
+    getLControls() - Render left controls
+    
+    getPageTitle() - Get title of form page
+    
+    getPageDescription() - Get description of form page
+    
+    getElement(placeholder, name, type, rtype, title, dynamiccount) - render element
+    
+    getPageElements() - Get all elements
+    
+    getPage() - Get entire page
+    
+  Internal:
+    Form:
+      hideForm()
+      showForm()
+      toPage()
+      loadPage()
+      doSubmit()
+      handleSubmit()
+      doDynamic()
+      verify()
+      verifyType()
+      
+    Events:
+      eventTriggerBack(event)
+      eventTriggerDynamic(event)
+      eventTriggerNext(event)
+      bindEvents()
+      unbindEvents()
+      
+    Misc:
+      saveData()
+      fdata(event)
+      loadData()
+      htmlSafe()
