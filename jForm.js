@@ -617,7 +617,7 @@ function jForm() {
                                     return page;
                                 }
                                 
-                                if (this.verifyType(nrtype, ntype, this.data[nname]) == false) {
+                                if (this.verifyType(rtype, type, this.data[nname]) == false) {
                                     return page;
                                 }
                             }
